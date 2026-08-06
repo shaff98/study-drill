@@ -172,8 +172,6 @@ function statsFor(sc) {
 let sessionRight = 0, sessionTotal = 0, current = null, lastId = null;
 
 const $ = id => document.getElementById(id);
-$("bankNote").textContent =
-  QUESTIONS.length + " questions from " + Object.keys(BANKS).length + " test(s) · progress saves on this device";
 
 function pool() { return scopeQuestions(scope).filter(q => !state.mastered[q.questionId]); }
 
@@ -212,6 +210,9 @@ function updateHeader() {
     ? "This session: " + sessionRight + " of " + sessionTotal + " correct" : "";
   $("allTime").textContent = s.tries
     ? "Overall: " + s.wrong + " misses / " + s.tries + " tries" : "";
+  $("bankNote").textContent = (scope === "all"
+    ? s.total + " questions from " + TESTS.length + " tests"
+    : s.total + " questions in " + testLabel(scope)) + " · progress saves on this device";
   refreshOptions();
 }
 
