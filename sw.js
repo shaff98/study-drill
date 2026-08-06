@@ -1,7 +1,7 @@
 // Network-first with cache fallback: fresh questions when online,
 // full app offline when not. Cache name embeds the content hash so a
 // new build replaces the old cache on activation.
-const CACHE = "drill-2e25d1a911e8";
+const CACHE = "drill-9cc4864750bf";
 self.addEventListener("install", e => {
   e.waitUntil(
     caches.open(CACHE)
